@@ -4,6 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
@@ -26,12 +30,11 @@ public class App extends Application {
     private static final String apkName = "plugin.apk";
     private static final String dexName = "plugin.dex";
 
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onCreate() {
         super.onCreate();
-
-
 
 
     }
@@ -45,7 +48,15 @@ public class App extends Application {
         File optDexFile = getFileStreamPath(dexName);
         Utils.hookDexPath(getClassLoader(),dexFile,optDexFile);
 
-        Utils.hookActivityManager(base);
-        Utils.hookActivityThread();
+//        Utils.hookActivityManager(base);
+//        Utils.hookActivityThread();
+
+
     }
+
+
+
+
+
+
 }

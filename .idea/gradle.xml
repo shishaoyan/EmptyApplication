@@ -13,6 +13,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Douyu" />
+            <option value="$PROJECT_DIR$/SPlugin" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
