@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.ssy.splugin.PluginManager;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -23,35 +25,24 @@ import dalvik.system.DexClassLoader;
 
 public class MainActivity extends Activity {
     private static final String TAG = MainActivity.class.getName();
-    private TextView tvContent;
-    AssetManager mAssetManager;
-    Resources mResources;
-    Resources.Theme mTheme;
-    private static final String apkName = "plugin.apk";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tvContent = findViewById(R.id.tv_content);
-
-        findViewById(R.id.btn_load_plugin).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        Log.e("haha","MainActivity onCreate"+R.layout.activity_second);;
 
 
-            }
-        });
         findViewById(R.id.btn_jump).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String b = MainActivity.class.getName();
+                Log.e("haha","b:"+b);
+                String activityName = PluginManager.pluginItemList.get(0).packageInfo.packageName + ".HaHaActivity";
 
-
-                Class<?> clazz = null;
                 try {
-                    clazz = Class.forName("com.ssy.douyu.HaHaActivity");
-//                    clazz = Class.forName("com.ssy.emptyapplication.SecondActivity");
                     Intent intent = new Intent();
-                    intent.setClass(MainActivity.this, clazz);
+                    intent.setClass(MainActivity.this, Class.forName(activityName));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
@@ -60,14 +51,6 @@ public class MainActivity extends Activity {
             }
         });
     }
-
-
-
-
-
-
-
-
 
 
 }

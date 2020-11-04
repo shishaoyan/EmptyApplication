@@ -1,4 +1,4 @@
-package com.ssy.emptyapplication;
+package com.ssy.splugin;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,7 +14,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.ObjectStreamException;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -22,7 +21,6 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-import java.util.Arrays;
 import java.util.List;
 
 import dalvik.system.DexClassLoader;
@@ -103,7 +101,7 @@ public class Utils {
                 public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                     if ("startActivity".equals(method.getName())) {
                         Intent intent = (Intent) args[2];
-                        Intent proxyIntent = new Intent(context.getApplicationContext(), SecondActivity.class);
+                        Intent proxyIntent = new Intent(context.getApplicationContext(), SubActivity.class);
                         proxyIntent.putExtra("targetIntent", intent);
                         args[2] = proxyIntent;
                     }

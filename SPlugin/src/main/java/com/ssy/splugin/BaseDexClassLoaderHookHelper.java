@@ -1,4 +1,4 @@
-package com.ssy.emptyapplication;
+package com.ssy.splugin;
 
 import java.io.File;
 import java.io.IOException;
