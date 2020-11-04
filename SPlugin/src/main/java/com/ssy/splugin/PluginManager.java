@@ -49,8 +49,8 @@ public class PluginManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        Utils.hookActivityManager(mContext);
-//        Utils.hookActivityThread();
+        Utils.hookActivityManager(mContext);
+        Utils.hookActivityThread();
 
 
 
@@ -74,27 +74,6 @@ public class PluginManager {
 
         }
     }
-//    public static void hookResources(Context base, Resources resources) {
-//        try {
-//            ReflectUtil.setField(base.getClass(), base, "mResources", resources);
-//            Object loadedApk = ReflectUtil.getPackageInfo(base);
-//            ReflectUtil.setField(loadedApk.getClass(), loadedApk, "mResources", resources);
-//
-//            Object resManager = RefInvoke.getFieldObject(activityThread.getClass(), activityThread, "mResourcesManager");
-//            if (Build.VERSION.SDK_INT < 24) {
-//                Map<Object, WeakReference<Resources>> map = (Map<Object, WeakReference<Resources>>) ReflectUtil.getField(resManager.getClass(), resManager, "mActiveResources");
-//                Object key = map.keySet().iterator().next();
-//                map.put(key, new WeakReference<>(resources));
-//            } else {                // still hook Android N Resources, even though it's unnecessary, then nobody will be strange.
-//                Map map = (Map) RefInvoke.getFieldObject(resManager.getClass(), resManager, "mResourceImpls");
-//                Object key = map.keySet().iterator().next();
-//                Object resourcesImpl = RefInvoke.getFieldObject(Resources.class, resources, "mResourcesImpl");
-//                map.put(key, new WeakReference<>(resourcesImpl));
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
      static void loadPluginResource(ArrayList<String> pluginPaths) {
         try {
             AssetManager assetManager = AssetManager.class.newInstance();

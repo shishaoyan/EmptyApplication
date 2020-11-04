@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.ssy.douyu.HaHaActivity"></activity>
     </application>
 
 </manifest>
