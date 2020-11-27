@@ -15,7 +15,7 @@ public class HaHaActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ha_ha);
+        setContentView(R.layout.activity_main);
         Log.e("haha","activity_login"+R.layout.activity_login);
         Log.e("haha","activity_login"+R.layout.activity_ha_ha);
         Log.e("haha","activity_main"+R.layout.activity_main);
@@ -33,19 +33,8 @@ public class HaHaActivity extends Activity {
         Log.e("haha","onStop");
     }
 
-    @Override
-    public Resources getResources() {
-        return PluginManager.mResources;
-    }
 
-    @Override
-    public Resources.Theme getTheme() {
-
-        return PluginManager.mTheme;
-    }
-
-    @Override
-    public AssetManager getAssets() {
-        return PluginManager.mAssetManager;
+    public  static String getHaha(){
+        return "这就是 哈哈";
     }
 }
